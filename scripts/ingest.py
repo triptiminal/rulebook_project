@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import csv
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from pypdf import PdfReader
@@ -13,18 +14,13 @@ def process_markdown(filepath):
         content = f.read()
     
     filename = os.path.basename(filepath)
-    # The markdown files have '# Title' and '## Section X: Title'
-    # We can split by '## '
     sections = content.split('\n## ')
     
     chunks = []
-    # The first element is the main title and preamble
     main_title = sections[0].strip().replace('# ', '')
     if len(sections) > 0:
         for idx, sec in enumerate(sections):
             if idx == 0:
-                # The first part is the title, maybe some preamble.
-                # If there's substantial preamble, we should capture it.
                 if len(main_title.split('\n')) > 1:
                     preamble = main_title.split('\n', 1)[1].strip()
                     if preamble:
@@ -54,8 +50,6 @@ def process_pdf(filepath):
         text += page.extract_text() + "\n"
     
     filename = os.path.basename(filepath)
-    # The PDF has sections starting with '1. ', '2. ', etc.
-    # Split by numbers followed by dot and space at the beginning of a line
     pattern = r'\n(?=\d+\. )'
     parts = re.split(pattern, text)
     
@@ -64,7 +58,6 @@ def process_pdf(filepath):
         part = part.strip()
         if not part: continue
         
-        # Extract section title (first line)
         lines = part.split('\n', 1)
         section_title = lines[0].strip()
         
@@ -73,6 +66,23 @@ def process_pdf(filepath):
             "section": section_title,
             "text": part
         })
+    return chunks
+
+def process_csv(filepath):
+    filename = os.path.basename(filepath)
+    chunks = []
+    with open(filepath, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row_idx, row in enumerate(reader):
+            text = f"Data from {filename} (Row {row_idx + 1}):\n"
+            for key, val in row.items():
+                text += f"- {key}: {val}\n"
+            
+            chunks.append({
+                "file": filename,
+                "section": f"Row {row_idx + 1}",
+                "text": text.strip()
+            })
     return chunks
 
 def main():
@@ -88,14 +98,14 @@ def main():
             all_chunks.extend(process_markdown(filepath))
         elif filename.endswith(".pdf"):
             all_chunks.extend(process_pdf(filepath))
+        elif filename.endswith(".csv"):
+            all_chunks.extend(process_csv(filepath))
             
     print(f"Extracted {len(all_chunks)} chunks. Generating embeddings...")
     texts = [c["text"] for c in all_chunks]
     
-    # Generate embeddings
     embeddings = model.encode(texts, show_progress_bar=True)
     
-    # Save chunks and embeddings
     print(f"Saving {len(texts)} chunks and embeddings of shape {embeddings.shape}...")
     with open(os.path.join(DATA_DIR, "chunks.json"), "w", encoding="utf-8") as f:
         json.dump(all_chunks, f, indent=4)
