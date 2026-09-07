@@ -12,7 +12,10 @@
         <!-- Left Panel: Chat -->
         <main class="chat-panel">
             <header>
-                <h1>Rulebook QA Assistant</h1>
+                <div class="header-top">
+                    <h1>Rulebook QA Assistant</h1>
+                    <button id="evaluate-btn" class="eval-btn">Evaluate System</button>
+                </div>
                 <p>Ask any policy question and get instant answers with citations.</p>
             </header>
             
@@ -42,6 +45,20 @@
                 <div class="empty-state">Submit a question to see the exact rulebook clauses used to generate the answer.</div>
             </div>
         </aside>
+    </div>
+
+    <!-- Evaluation Modal -->
+    <div id="eval-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>System Evaluation</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <p class="modal-desc">Testing 25 'Not Covered' queries against the Decision Engine...</p>
+            <div class="eval-list" id="eval-list">
+                <!-- Questions will be injected here -->
+            </div>
+        </div>
     </div>
 
     <script src="app.js"></script>

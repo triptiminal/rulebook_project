@@ -141,4 +141,77 @@ document.addEventListener('DOMContentLoaded', () => {
              .replace(/"/g, "&quot;")
              .replace(/'/g, "&#039;");
     }
+
+    // Evaluation Logic
+    const evalBtn = document.getElementById('evaluate-btn');
+    const evalModal = document.getElementById('eval-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const evalList = document.getElementById('eval-list');
+
+    if (evalBtn && evalModal && closeModalBtn && evalList) {
+        evalBtn.addEventListener('click', async () => {
+            evalModal.classList.remove('hidden');
+            evalList.innerHTML = '<div class="empty-state">Fetching questions...</div>';
+            
+            try {
+                const response = await fetch('/evaluation/questions');
+                const questions = await response.json();
+                
+                if (questions.length === 0) {
+                    evalList.innerHTML = '<div class="empty-state">No questions found in data/25_unanswered_questions.txt.</div>';
+                    return;
+                }
+
+                // Populate list
+                evalList.innerHTML = questions.map((q, i) => `
+                    <div class="eval-item" id="eval-q-${i}">
+                        <div class="eval-q">${escapeHtml(q)}</div>
+                        <div class="eval-status" id="eval-s-${i}">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Run batch evaluation sequentially to avoid rate limits
+                for (let i = 0; i < questions.length; i++) {
+                    const statusEl = document.getElementById(`eval-s-${i}`);
+                    try {
+                        const qRes = await fetch('/ask', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ query: questions[i] })
+                        });
+                        const qData = await qRes.json();
+                        
+                        let badge = '';
+                        if (qData.status === 'not_covered') {
+                            badge = '<span class="status-tag status-not_covered">Not Covered</span>';
+                        } else if (qData.status === 'answered') {
+                            badge = '<span class="status-tag status-answered">Answered</span>';
+                        } else if (qData.status === 'conflict') {
+                            badge = '<span class="status-tag status-conflict">Conflict</span>';
+                        } else {
+                            badge = '<span class="status-tag status-error">Error</span>';
+                        }
+                        
+                        statusEl.innerHTML = badge;
+                    } catch (e) {
+                        statusEl.innerHTML = '<span class="status-tag status-error">Error</span>';
+                    }
+                    
+                    // Delay for 4.5 seconds to stay under 15 Requests Per Minute (Free Tier limit)
+                    if (i < questions.length - 1) {
+                        await new Promise(resolve => setTimeout(resolve, 4500));
+                    }
+                }
+                
+            } catch (error) {
+                evalList.innerHTML = '<div class="empty-state">Failed to load evaluation questions.</div>';
+            }
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            evalModal.classList.add('hidden');
+        });
+    }
 });

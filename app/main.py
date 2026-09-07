@@ -64,6 +64,15 @@ def ask_question(request: QueryRequest):
             retrieved_chunks=relevant_chunks
         )
 
+@app.get("/evaluation/questions")
+def get_evaluation_questions():
+    filepath = "test/25_unanswered_questions.txt"
+    if not os.path.exists(filepath):
+        return []
+    with open(filepath, "r", encoding="utf-8") as f:
+        questions = [line.strip() for line in f if line.strip()]
+    return questions
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
