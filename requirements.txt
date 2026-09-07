@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+sentence-transformers
+numpy
+pypdf
+jinja2
+python-multipart
+defusedxml==0.7.1
+fonttools==4.64.0
+fpdf==1.7.2
+fpdf2==2.8.8
+pillow==12.3.0

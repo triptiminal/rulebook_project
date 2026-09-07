@@ -1,0 +1,31 @@
+# Residential Life and Hostel Administration Regulations
+
+## Section 1: Mission Statement
+The University's residential facilities are designed to provide a safe, inclusive, and supportive living environment that complements the academic mission of the institution. We believe that living on campus is a crucial component of the holistic educational experience, fostering personal growth, independence, and a strong sense of community. The Hostel Administration is dedicated to maintaining high standards of accommodation, ensuring the well-being of all residents, and cultivating a vibrant, respectful, and diverse residential community.
+
+## Section 2: Allotment of Accommodation
+Hostel accommodation is highly sought after and is allotted based on a combination of factors, including the student's year of study, home address distance from the campus, and academic standing. Priority is generally given to first-year undergraduate students and international students. The allotment process is managed entirely online through the Student Portal. Room assignments are made by the Hostel Wardens, taking into consideration expressed preferences where possible, but the University reserves the right to assign or reassign rooms as necessary to optimize occupancy and manage the residential community effectively.
+
+## Section 3: Code of Conduct in Hostels
+Living in a shared residential environment requires a high degree of mutual respect, tolerance, and adherence to community standards. Residents are expected to conduct themselves in a manner that does not disturb or inconvenience their fellow students. This includes maintaining reasonable noise levels, especially during designated quiet hours, respecting the privacy of others, and keeping communal areas clean and tidy. Any form of harassment, bullying, or discrimination within the hostels is strictly prohibited and will result in immediate disciplinary action, potentially leading to eviction from the residence.
+
+## Section 4: Curfew and Entry/Exit Rules
+Ensuring the safety and security of all residents is the highest priority of the Hostel Administration. To manage access and maintain a secure environment during the night, strict entry and exit protocols are enforced. The main gates of all undergraduate hostels will be locked at 10:00 PM strictly. No student is permitted to enter or exit the hostel premises between 10:00 PM and 6:00 AM. This measure is crucial for perimeter security and creating a stable environment conducive to sleep and study.
+
+## Section 5: Facilities and Maintenance
+The University strives to provide well-maintained and comfortable facilities for all residents. Each hostel is equipped with communal lounges, study rooms, laundry facilities, and basic kitchenettes for the preparation of light snacks. The Facilities Management Department is responsible for the routine maintenance and repair of the hostel infrastructure. Residents are required to report any damages or maintenance issues promptly via the online ticketing system. Intentional vandalism or damage caused by negligence will result in the cost of repairs being charged directly to the responsible student's account.
+
+## Section 6: Health, Safety, and Emergencies
+Residents must strictly adhere to all health and safety regulations. The use of unauthorized electrical appliances, such as hot plates or space heaters, in student bedrooms is strictly forbidden due to the risk of fire. Regular fire drills are conducted, and participation is mandatory for all residents. In the event of a medical emergency or security incident, residents should immediately contact the Resident Assistant on duty or the 24-hour Campus Security control room. First aid kits are available in the Warden's office and at the main reception desk.
+
+## Section 7: Disciplinary Actions for Hostel Violations
+Violations of the Hostel Administration Regulations are taken very seriously and will be addressed through the university's disciplinary procedures. Minor infractions, such as noise complaints or messiness in communal areas, will typically result in a verbal or written warning from the Resident Assistant or Warden. Repeated or severe offenses, such as vandalism, possession of prohibited substances, or violent behavior, will be referred to the University Disciplinary Committee and may result in severe sanctions, including permanent eviction from university housing and potential academic suspension.
+
+## Section 8: Guest Policy
+The University recognizes that social interaction is important, but it must be balanced with the security and comfort of all residents. Residents may host visitors in the communal areas of the hostel between the hours of 10:00 AM and 8:00 PM. All guests must be signed in at the main reception desk and must leave an official form of identification with security. Overnight guests are strictly prohibited under any circumstances. The resident host assumes full responsibility for the behavior of their guests and any damages they may cause while on the premises.
+
+## Section 9: Dining and Mess Regulations
+Most undergraduate hostels are affiliated with a specific dining hall or mess facility. Residents who opt into a meal plan must present their university ID card for scanning at each meal service. Food provided in the dining halls is for consumption on the premises and may not be taken back to hostel rooms, for reasons of hygiene and pest control. The University endeavors to cater to diverse dietary requirements, including vegetarian, vegan, and specific religious diets, provided these are communicated to the Catering Services Manager at the beginning of the academic year.
+
+## Section 10: Vacating the Hostel
+At the end of the academic year, or upon early termination of the housing contract, residents must follow the formal checkout procedure. This involves thoroughly cleaning the assigned room, removing all personal belongings, and completing a room inspection with the Resident Assistant. All keys must be returned to the Warden's office. Failure to properly clean the room or return keys will result in deductions from the housing deposit. Any belongings left behind after the checkout deadline will be considered abandoned and disposed of by the University.
